@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MagicOnion.Server" Version="4.3.1" />
+    <ProjectReference Include="..\App.Shared\App.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

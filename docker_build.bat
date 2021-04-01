@@ -1,0 +1,1 @@
+docker build -t app_magiconion:latest -f App.Server/Dockerfile .
