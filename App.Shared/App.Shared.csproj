@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\App.Unity\Assets\Scripts\Shared\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MagicOnion.Abstractions" Version="4.3.1" />
+    <PackageReference Include="MagicOnion.MSBuild.Tasks" Version="4.3.1" PrivateAssets="All" />
+    <PackageReference Include="MessagePack.MSBuild.Tasks" Version="2.1.194" PrivateAssets="All" /> <!-- fixed version -->
+    <PackageReference Include="MessagePack.UnityShims" Version="2.3.75" />
+  </ItemGroup>
+
+  <Target Name="GenerateMessagePack" AfterTargets="Compile">
+    <MessagePackGenerator Input=".\App.Shared.csproj" Output="..\App.Unity\Assets\Scripts\Generated\MessagePack.Generated.cs" />
+  </Target>
+  <Target Name="GenerateMagicOnion" AfterTargets="Compile">
+    <MagicOnionGenerator Input=".\App.Shared.csproj" Output="..\App.Unity\Assets\Scripts\Generated\MagicOnion.Generated.cs" />
+  </Target>
+
+</Project>
